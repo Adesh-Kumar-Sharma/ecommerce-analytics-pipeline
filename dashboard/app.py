@@ -302,7 +302,7 @@ elif page == "📊 Advanced Analytics":
                 ORDER BY summary_date DESC 
                 LIMIT 30
             """)
-            
+    
             if len(recent_revenue) > 0:
                 # Calculate trend
                 recent_revenue['days'] = range(len(recent_revenue))
@@ -312,9 +312,9 @@ elif page == "📊 Advanced Analytics":
                 future_days = range(len(recent_revenue), len(recent_revenue) + 7)
                 forecast = [trend * day + trend for day in future_days]
                 
-                st.write(f"📊 **Average Daily Revenue**: ${recent_revenue['total_revenue'].mean():,.2f}")
-                st.write(f"📈 **Trend**: ${trend:+.2f} per day")
-                st.write(f"🔮 **7-Day Forecast**: ${sum(forecast):,.2f}")
+                st.write(f"📊 **Average Daily Revenue**: ${recent_revenue['total_revenue'][0].mean():,.2f}")
+                st.write(f"📈 **Trend**: ${trend[0]:.2f}+ per day")
+                st.write(f"🔮 **7-Day Forecast**: ${sum(forecast)[0]:,.2f}")
             
         except Exception as e:
             st.error(f"Forecast calculation error: {e}")
@@ -327,12 +327,12 @@ elif page == "📊 Advanced Analytics":
             SELECT 
                 (SELECT COUNT(*) FROM customers WHERE customer_segment = 'Premium') as premium_customers,
                 (SELECT AVG(profit_margin) FROM products) as avg_profit_margin,
-                (SELECT category FROM product_metrics ORDER BY total_revenue DESC LIMIT 1) as top_category
+                (SELECT p.category FROM product_metrics pm JOIN products p ON pm.product_id = p.product_id ORDER BY pm.total_revenue DESC LIMIT 1) as top_category
             """
             insights = utils.load_data(insights_query)
             
             if len(insights) > 0:
-                insight = insights.iloc
+                insight = insights.iloc[0]
                 st.write(f"👑 **Premium Customers**: {insight['premium_customers']:,}")
                 st.write(f"💰 **Avg Profit Margin**: {insight['avg_profit_margin']:.1f}%")
                 st.write(f"🏆 **Top Category**: {insight['top_category']}")

@@ -107,24 +107,27 @@ class DashboardUtils:
         fig = make_subplots(
             rows=2, cols=1,
             subplot_titles=('Monthly Revenue', 'Growth Rate %'),
-            vertical_spacing=0.12
+            vertical_spacing=0.3
         )
         
         # Revenue bars
         fig.add_trace(
             go.Bar(
-                x=df['month'],
-                y=df['revenue'],
+                x=df['order_month'],
+                y=df['total_revenue'],
                 name='Revenue',
                 marker_color='lightblue'
             ),
             row=1, col=1
         )
         
+        # Calculate revenue growth percentage if not present
+        df['revenue_growth_pct'] = df['total_revenue'].pct_change().fillna(0) * 100
+
         # Growth rate line
         fig.add_trace(
             go.Scatter(
-                x=df['month'],
+                x=df['order_month'],
                 y=df['revenue_growth_pct'],
                 mode='lines+markers',
                 name='Revenue Growth %',
