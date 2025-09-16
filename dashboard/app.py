@@ -60,6 +60,66 @@ if page == "📈 Overview":
     ORDER BY summary_date DESC
     """
     
+    # Calculate the previous period for comparison
+    period_days = (end_date - start_date).days
+    prev_start_date = start_date - pd.Timedelta(days=period_days + 1)
+    prev_end_date = start_date - pd.Timedelta(days=1)
+
+    # Query the sales_summary table for BOTH periods
+    current_df = utils.load_data(f"SELECT * FROM sales_summary WHERE summary_date BETWEEN '{start_date}' AND '{end_date}'")
+    prev_df = utils.load_data(f"SELECT * FROM sales_summary WHERE summary_date BETWEEN '{prev_start_date}' AND '{prev_end_date}'")
+
+    # Calculate the TOTALS for each period
+    current_totals = {
+        'total_revenue': current_df['total_revenue'].sum(),
+        'total_orders': current_df['total_orders'].sum(),
+        'total_customers': current_df['total_customers'].sum(), # This sums the daily counts
+        'avg_order_value': current_df['avg_order_value'].mean()  # This takes the average of the daily averages
+    }
+
+    prev_totals = {
+        'total_revenue': prev_df['total_revenue'].sum(),
+        'total_orders': prev_df['total_orders'].sum(),
+        'total_customers': prev_df['total_customers'].sum(),
+        'avg_order_value': prev_df['avg_order_value'].mean()
+    }
+
+    # Calculate the percentage changes (deltas)
+
+    # Check revenue
+    if prev_totals['total_revenue'] > 0:
+        revenue_change = ((current_totals['total_revenue'] - prev_totals['total_revenue']) / prev_totals['total_revenue']) * 100
+    else:
+        revenue_change = 0  # Can't calculate change from 0
+
+    # Check orders
+    if prev_totals['total_orders'] > 0:
+        orders_change = ((current_totals['total_orders'] - prev_totals['total_orders']) / prev_totals['total_orders']) * 100
+    else:
+        orders_change = 0
+
+    # Check customers
+    if prev_totals['total_customers'] > 0:
+        customers_change = ((current_totals['total_customers'] - prev_totals['total_customers']) / prev_totals['total_customers']) * 100
+    else:
+        customers_change = 0
+
+    # Check average order value (must check for both NaN and 0)
+    if pd.notna(prev_totals['avg_order_value']) and prev_totals['avg_order_value'] != 0:
+        aov_change = ((current_totals['avg_order_value'] - prev_totals['avg_order_value']) / prev_totals['avg_order_value']) * 100
+    else:
+        aov_change = 0
+
+    # Now that all variables are safely defined, add them to the dictionary
+    current_totals['revenue_change'] = revenue_change
+    current_totals['orders_change'] = orders_change
+    current_totals['customers_change'] = customers_change
+    current_totals['aov_change'] = aov_change
+
+    # And pass the complete object to your function
+    col1, col2, col3, col4 = st.columns(4)
+    utils.create_metric_cards(col1, col2, col3, col4, current_totals)
+
     try:
         daily_sales = utils.load_data(daily_sales_query)
         
@@ -76,10 +136,6 @@ if page == "📈 Overview":
                 'total_customers': total_customers,
                 'avg_order_value': avg_order_value
             }
-            
-            # Metric cards
-            col1, col2, col3, col4 = st.columns(4)
-            utils.create_metric_cards(col1, col2, col3, col4, metrics)
             
             # Charts
             col1, col2 = st.columns(2)
@@ -169,7 +225,19 @@ elif page == "📦 Products":
     with col1:
         # Category performance
         try:
-            category_data = utils.load_data("SELECT * FROM product_metrics")
+            category_data = utils.load_data("""
+                SELECT 
+                    p.product_name,
+                    p.category,
+                    p.subcategory,
+                    pm.total_quantity_sold,
+                    pm.total_revenue,
+                    pm.unique_orders,
+                    pm.product_id
+                FROM product_metrics pm
+                JOIN products p ON pm.product_id = p.product_id
+            """)
+
             st.plotly_chart(
                 utils.create_category_chart(category_data),
                 use_container_width=True
@@ -180,7 +248,17 @@ elif page == "📦 Products":
     with col2:
         # Top products
         try:
-            top_products = utils.load_data("SELECT * FROM product_metrics LIMIT 10")
+            query = """
+                SELECT 
+                    p.product_name,
+                    pm.total_quantity_sold,
+                    pm.total_revenue
+                FROM product_metrics pm
+                JOIN products p ON pm.product_id = p.product_id
+                ORDER BY pm.total_revenue DESC
+                LIMIT 10
+            """
+            top_products = utils.load_data(query)
             st.subheader("🏆 Top 10 Products")
             for _, product in top_products.iterrows():
                 st.metric(
