@@ -1,6 +1,6 @@
-from .extract import DataExtractor
-from .transform import DataTransformer
-from .load import DataLoader
+from etl.extract import DataExtractor
+from etl.transform import DataTransformer
+from etl.load import DataLoader
 from datetime import datetime
 import schedule
 import time

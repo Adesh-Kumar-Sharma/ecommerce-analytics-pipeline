@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
-from utils import utils
+from dashboard.utils import utils
 from datetime import datetime, timedelta
 import numpy as np
 
