@@ -13,5 +13,8 @@ data/
 # VS Code settings
 .vscode/
 
+# VS Code dev container
+.devcontainer/
+
 # Python environment variables
 .env
