@@ -66,7 +66,6 @@ class DataLoader:
         '''
         
         try:
-            #maybe with self.db.get_connection() as conn:
             with self.db.engine.begin() as conn:
                 conn.execute(text(summary_query))
             print("Sales summary updated successfully!")

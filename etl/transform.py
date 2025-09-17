@@ -102,7 +102,6 @@ class DataTransformer:
             'order_id': 'count',
             'total_amount': ['sum', 'mean', 'max'],
             'order_date': ['min', 'max']
-            #maybe summary_date
         }).round(2)
         
         customer_metrics.columns = ['order_count', 'total_spent', 'avg_order_value', 'max_order_value', 'first_order', 'last_order']
