@@ -154,10 +154,16 @@ Follow these steps to run the project on your local machine.
 
 ## 📺 YouTube Demo
 
-Watch the full demo and walkthrough of this project on YouTube:
-
 <div align="center">
   <iframe width="560" height="315" src="https://www.youtube.com/embed/7NimOCNB0WQ" 
     frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
   </iframe>
 </div>
+
+<div align="center">
+   <a href="https://www.youtube.com/watch?v=7NimOCNB0WQ">
+   <img src="https://www.google.com/search?q=https://img.youtube.com/vi/7NimOCNB0WQ/0.jpg" alt="E-commerce ETL Pipeline Demo">
+   </a>
+</div>
+
+Watch the full demo and walkthrough of this project on YouTube:  **[E-commerce ETL Pipeline Demo](https://www.youtube.com/watch?v=7NimOCNB0WQ)**
