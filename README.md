@@ -71,7 +71,7 @@ Follow these steps to run the project on your local machine.
 2. **Clone the Repository**
 
    ```bash
-   git clone https://github.com/your-username/ecommerce-analytics-pipeline.git
+   git clone https://github.com/Adesh-Kumar-Sharma/ecommerce-analytics-pipeline.git
    cd ecommerce-analytics-pipeline
    ```
 
