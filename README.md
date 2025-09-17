@@ -71,37 +71,31 @@ Follow these steps to run the project on your local machine.
 2. **Clone the Repository**
 
    ```bash
-   git clone [https://github.com/your-username/ecommerce-analytics-pipeline.git](https://github.com/your-username/ecommerce-analytics-pipeline.git)
+   git clone https://github.com/your-username/ecommerce-analytics-pipeline.git
    cd ecommerce-analytics-pipeline
    ```
 
 3. **Set Up the Environment**
 
-   Create and activate a Python virtual environment:
+   Create a Python virtual environment:
 
    ```bash
    py -3.9 -m venv .venv
    ```
 
-4. **Create the virtual environment**
-
-   ```bash
-   py -3.11 -m venv .venv
-   ```
-
-5. **Activate it**
+4. **Activate the environment**
 
    ```bash
    ./.venv/Scripts/Activate.ps1
    ```
 
-6. **Install the required dependencies**
+5. **Install the required dependencies**
 
    ```bash
    pip install -r requirements.txt
    ```
 
-7. **Configure the Database**
+6. **Configure the Database**
 
    - Sign up for a free PostgreSQL database at Neon.tech.
 
@@ -113,7 +107,7 @@ Follow these steps to run the project on your local machine.
       DATABASE_URL="postgresql://user:password@host:port/dbname"
       ```
 
-8. **Run the ETL Pipeline**
+7. **Run the ETL Pipeline**
 
    Execute the main pipeline script to populate your database:
 
@@ -121,7 +115,7 @@ Follow these steps to run the project on your local machine.
    python -m etl.pipeline
    ```
 
-9. **Launch the Dashboard**
+8. **Launch the Dashboard**
 
    Run the Streamlit app to view the interactive dashboard:
 
