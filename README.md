@@ -22,6 +22,7 @@ An end-to-end data engineering project that builds a complete ETL pipeline for e
 - [Local Setup and Usage](#⚙️-local-setup-and-usage)
 - [Dashboard Features](#📊-dashboard-features)
 - [Deployment](#☁️-deployment)
+- [Homepage Screenshot](#📷-homepage-screenshot)
 - [YouTube Demo](#📺-youtube-demo)
 
 ---
@@ -152,18 +153,10 @@ Follow these steps to run the project on your local machine.
 
 - The app automatically redeploys upon any push to the main branch.
 
+## 📷 Homepage Screenshot
+
+![Homepage Screenshot](public/homepage-screenshot.png)
+
 ## 📺 YouTube Demo
-
-<div align="center">
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/7NimOCNB0WQ" 
-    frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-  </iframe>
-</div>
-
-<div align="center">
-   <a href="https://www.youtube.com/watch?v=7NimOCNB0WQ">
-   <img src="https://www.google.com/search?q=https://img.youtube.com/vi/7NimOCNB0WQ/0.jpg" alt="E-commerce ETL Pipeline Demo">
-   </a>
-</div>
 
 Watch the full demo and walkthrough of this project on YouTube:  **[E-commerce ETL Pipeline Demo](https://www.youtube.com/watch?v=7NimOCNB0WQ)**
