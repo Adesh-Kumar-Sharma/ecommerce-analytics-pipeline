@@ -70,7 +70,7 @@ Follow these steps to run the project on your local machine.
 
 2. **Clone the Repository**
 
-   ```bash
+   ```powershell
    git clone https://github.com/Adesh-Kumar-Sharma/ecommerce-analytics-pipeline.git
    cd ecommerce-analytics-pipeline
    ```
@@ -79,19 +79,19 @@ Follow these steps to run the project on your local machine.
 
    Create a Python virtual environment:
 
-   ```bash
-   py -3.9 -m venv .venv
+   ```powershell
+   py -3.11 -m venv .venv
    ```
 
 4. **Activate the environment**
 
-   ```bash
-   ./.venv/Scripts/Activate.ps1
+   ```powershell
+   .\.venv\Scripts\Activate.ps1
    ```
 
 5. **Install the required dependencies**
 
-   ```bash
+   ```powershell
    pip install -r requirements.txt
    ```
 
@@ -111,7 +111,7 @@ Follow these steps to run the project on your local machine.
 
    Execute the main pipeline script to populate your database:
 
-   ```bash
+   ```powershell
    python -m etl.pipeline
    ```
 
@@ -119,8 +119,8 @@ Follow these steps to run the project on your local machine.
 
    Run the Streamlit app to view the interactive dashboard:
 
-   ```bash
-   streamlit run dashboard/app.py
+   ```powershell
+   streamlit run app.py
    ```
 
    The dashboard will be available at [http://localhost:8501](http://localhost:8501) or a similar port depending on your machine.

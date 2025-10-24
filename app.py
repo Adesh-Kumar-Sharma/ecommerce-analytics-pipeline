@@ -35,7 +35,7 @@ st.sidebar.markdown("---")
 # Date range selector
 col1, col2 = st.sidebar.columns(2)
 with col1:
-    start_date = st.date_input("Start Date", datetime.now() - timedelta(days=30))
+    start_date = st.date_input("Start Date", datetime.now() - timedelta(days=60))
 with col2:
     end_date = st.date_input("End Date", datetime.now())
 
@@ -262,7 +262,7 @@ elif page == "📦 Products":
             st.subheader("🏆 Top 10 Products")
             for _, product in top_products.iterrows():
                 st.metric(
-                    label=product['product_name'][:30] + "...",
+                    label=product['product_name'][:60] + "...",
                     value=f"${product['total_revenue']:,.0f}",
                     delta=f"{product['total_quantity_sold']} units"
                 )
@@ -300,7 +300,7 @@ elif page == "📊 Advanced Analytics":
                 SELECT summary_date, total_revenue 
                 FROM sales_summary 
                 ORDER BY summary_date DESC 
-                LIMIT 30
+                LIMIT 60
             """)
     
             if len(recent_revenue) > 0:

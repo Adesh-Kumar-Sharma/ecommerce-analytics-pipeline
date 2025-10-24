@@ -62,7 +62,7 @@ class DataLoader:
              ORDER BY SUM(oi.total_price) DESC 
              LIMIT 1) as top_category
         FROM orders o
-        GROUP BY o.summary_date
+        GROUP BY o.order_date
         '''
         
         try:
