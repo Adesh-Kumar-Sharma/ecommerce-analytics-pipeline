@@ -125,6 +125,8 @@ Follow these steps to run the project on your local machine.
 
    The dashboard will be available at [http://localhost:8501](http://localhost:8501) or a similar port depending on your machine.
 
+---
+
 ## 📊 Dashboard Features
 
    The dashboard is organized into several pages for comprehensive analysis:
@@ -137,6 +139,8 @@ Follow these steps to run the project on your local machine.
 
    4. **Advanced** Analytics: Monthly performance, revenue growth rate, and forecasting.
 
+---
+
 ## ☁️ Deployment
 
 - The dashboard for this project is deployed on Streamlit Community Cloud.
@@ -147,10 +151,16 @@ Follow these steps to run the project on your local machine.
 
 - The app automatically redeploys upon any push to the main branch.
 
+---
+
 ## 📷 Homepage Screenshot
 
 ![Homepage Screenshot](public/homepage-screenshot.png)
 
+---
+
 ## 📺 YouTube Demo
 
 Watch the full demo and walkthrough of this project on YouTube:  **[E-commerce ETL Pipeline Demo](https://www.youtube.com/watch?v=7NimOCNB0WQ)**
+
+---
