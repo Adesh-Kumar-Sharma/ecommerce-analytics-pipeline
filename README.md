@@ -16,14 +16,14 @@ An end-to-end data engineering project that builds a complete ETL pipeline for e
 
 ## 📋 Table of Contents
 
-- [Key Features](#✨-key-features)
-- [Tech Stack](#🛠-tech-stack)
-- [Data Pipeline Architecture](#🏗️-data-pipeline-architecture)
-- [Local Setup and Usage](#⚙️-local-setup-and-usage)
-- [Dashboard Features](#📊-dashboard-features)
-- [Deployment](#☁️-deployment)
-- [Homepage Screenshot](#📷-homepage-screenshot)
-- [YouTube Demo](#📺-youtube-demo)
+- [Key Features](#-key-features)
+- [Tech Stack](#-tech-stack)
+- [Data Pipeline Architecture](#%EF%B8%8F-data-pipeline-architecture)
+- [Local Setup and Usage](#%EF%B8%8F-local-setup-and-usage)
+- [Dashboard Features](#-dashboard-features)
+- [Deployment](#%EF%B8%8F-deployment)
+- [Homepage Screenshot](#-homepage-screenshot)
+- [YouTube Demo](#-youtube-demo)
 
 ---
 
