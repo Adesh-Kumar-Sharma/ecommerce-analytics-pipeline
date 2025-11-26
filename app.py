@@ -35,7 +35,7 @@ st.sidebar.markdown("---")
 # Date range selector
 col1, col2 = st.sidebar.columns(2)
 with col1:
-    start_date = st.date_input("Start Date", datetime.now() - timedelta(days=60))
+    start_date = st.date_input("Start Date", datetime.now() - timedelta(days=120))
 with col2:
     end_date = st.date_input("End Date", datetime.now())
 
