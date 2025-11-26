@@ -63,7 +63,7 @@ class DataExtractor:
         
         for _ in range(2000):  # 2000 orders
             customer_id = np.random.randint(1, n_customers + 1)
-            order_date = datetime.now() - timedelta(days=np.random.randint(1, 90))
+            order_date = datetime.now() - timedelta(days=np.random.randint(1, 120))
             ship_date = order_date + timedelta(days=np.random.randint(1, 7))
             
             order = {
