@@ -164,3 +164,9 @@ Follow these steps to run the project on your local machine.
 Watch the full demo and walkthrough of this project on YouTube:  **[E-commerce ETL Pipeline Demo](https://www.youtube.com/watch?v=7NimOCNB0WQ)**
 
 ---
+
+## 🔗 Author Credit
+
+Built with ❤️ by Adesh Kumar Sharma:  **[https://www.linkedin.com/in/adeshsharmacs](https://www.linkedin.com/in/adeshsharmacs)**
+
+---
